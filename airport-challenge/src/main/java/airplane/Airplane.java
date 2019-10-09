@@ -1,7 +1,7 @@
 package airplane;
 
-public class Airplane{
-
+public class Airplane
+{
   boolean atAirport = false;
 
   public boolean land()
@@ -9,5 +9,10 @@ public class Airplane{
     atAirport = true;
     return atAirport;
   }
-  
+
+  public boolean takeOff()
+  {
+    atAirport = false;
+    return atAirport;
+  }
 }
