@@ -11,4 +11,10 @@ public class Airport
     hangar.add(airplane);
     return hangar;
   }
+
+  public Object airplaneTakeOff(Object airplane)
+  {
+    hangar.remove(airplane);
+    return hangar;
+  }
 }

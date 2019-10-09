@@ -17,7 +17,6 @@ public class AirportTest
 
     assertEquals(Airport.class, airport.getClass());
   }
-
   @Test
   public void returnsAnArrayWithTheLandedAirplane()
   {
@@ -25,5 +24,14 @@ public class AirportTest
     Airplane airplane = new Airplane();
     airport.airplaneLand(airplane);
     assertEquals(Arrays.asList(airplane), airport.hangar);
+  }
+  @Test
+  public void returnsAnArrayWithoutTheDepartedAirplane()
+  {
+    Airport airport = new Airport();
+    Airplane airplane = new Airplane();
+    airport.hangar.add(airplane);
+    airport.airplaneTakeOff(airplane);
+    assertEquals(Arrays.asList(), airport.hangar);
   }
 }

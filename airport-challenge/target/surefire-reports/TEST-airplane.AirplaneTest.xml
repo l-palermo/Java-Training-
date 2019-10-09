@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="airplane.AirplaneTest" time="0.047" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="airplane.AirplaneTest" time="0.041" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Luigi\AppData\Local\Temp\surefire8208833999554046537\surefirebooter5045811850664822914.jar C:\Users\Luigi\AppData\Local\Temp\surefire8208833999554046537 2019-10-09T21-54-11_638-jvmRun1 surefire2763246129495289864tmp surefire_015397047247835651365tmp"/>
+    <property name="sun.java.command" value="C:\Users\Luigi\AppData\Local\Temp\surefire10073085174921684608\surefirebooter4773025694186499066.jar C:\Users\Luigi\AppData\Local\Temp\surefire10073085174921684608 2019-10-09T22-39-10_983-jvmRun1 surefire8547567815495782631tmp surefire_014121749761296088911tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\test-classes;C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\classes;C:\Users\Luigi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Luigi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Luigi\AppData\Local\Temp\surefire8208833999554046537\surefirebooter5045811850664822914.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Luigi\AppData\Local\Temp\surefire10073085174921684608\surefirebooter4773025694186499066.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.4+11"/>
@@ -60,7 +60,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="returnsAnInstanceOfAirplane" classname="airplane.AirplaneTest" time="0.003"/>
+  <testcase name="returnsAnInstanceOfAirplane" classname="airplane.AirplaneTest" time="0.001"/>
   <testcase name="whenAirplaneTakeOffReturnsFalse" classname="airplane.AirplaneTest" time="0"/>
-  <testcase name="whenAirplaneLandReturnsTrue" classname="airplane.AirplaneTest" time="0.001"/>
+  <testcase name="whenAirplaneLandReturnsTrue" classname="airplane.AirplaneTest" time="0"/>
 </testsuite>
