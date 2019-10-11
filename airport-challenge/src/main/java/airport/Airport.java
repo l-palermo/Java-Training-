@@ -17,6 +17,7 @@ public class Airport
 
   public Object airplaneTakeOff(Airplane airplane)
   {
+    if (!hangar.contains(airplane)) { return "The airplane is not in the hangar"; }
     hangar.remove(airplane);
     return hangar;
   }

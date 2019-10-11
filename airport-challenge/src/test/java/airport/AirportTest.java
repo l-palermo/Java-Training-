@@ -46,4 +46,11 @@ public class AirportTest
     airport.hangar = new ArrayList<>(Arrays.asList(hangarFull));
     assertEquals("The hangar is full", airport.airplaneLand(airplaneMock));
   }
+  @Test
+  public void AirplaneCannotTakeOffIfNotInHangar()
+  {
+    Airport airport = new Airport();
+    Airplane airplaneMock = mock(Airplane.class);
+    assertEquals("The airplane is not in the hangar", airport.airplaneTakeOff(airplaneMock));
+  }
 }
