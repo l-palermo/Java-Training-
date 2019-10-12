@@ -19,7 +19,7 @@ public class AirplaneTest
     Airplane plane = new Airplane();
     plane.land();
 
-    assertEquals(true, plane.atAirport);
+    assertEquals(true, plane.atAirport());
   }
   @Test
   public void whenAirplaneTakeOffReturnsFalse()
@@ -27,6 +27,6 @@ public class AirplaneTest
     Airplane plane = new Airplane();
     plane.takeOff();
 
-    assertEquals(false, plane.atAirport);
+    assertEquals(false, plane.atAirport());
   }
 }

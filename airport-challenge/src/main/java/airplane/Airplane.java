@@ -2,7 +2,12 @@ package airplane;
 
 public class Airplane
 {
-  public boolean atAirport = false;
+  private boolean atAirport = false;
+
+  public boolean atAirport()
+  {
+    return atAirport;
+  }
 
   public boolean land()
   {
