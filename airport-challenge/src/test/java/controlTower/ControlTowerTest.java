@@ -13,7 +13,7 @@ import org.mockito.junit.MockitoRule;
 
 import airplane.Airplane;
 
-public class ControlTowerTest
+public class controlTowerTest
 { 
   @Rule
   public MockitoRule rule = MockitoJUnit.rule();
@@ -26,7 +26,7 @@ public class ControlTowerTest
   {
     Object[] hangarFull = new Object[1];
     ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-    assertEquals(true, controlTower.checkForLand(hangar, airplane));
+    assertEquals(false, ControlTower.checkForLand(hangar, airplane));
   }
     @Test
     public void checkIfHangarContainsAirplane()
@@ -34,14 +34,14 @@ public class ControlTowerTest
       Object[] hangarFull = new Object[1];
       hangarFull[0] = airplane;
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(false, controlTower.checkForLand(hangar, airplane));
+      assertEquals(true, ControlTower.checkForLand(hangar, airplane));
     }
     @Test
     public void checkIfHangarIsFull()
     {
       Object[] hangarFull = new Object[5];
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(false, controlTower.checkForLand(hangar, airplane));
+      assertEquals(true, ControlTower.checkForLand(hangar, airplane));
     }
     @Test
     public void checkIfAirplaneIsAtAirport()
@@ -49,7 +49,7 @@ public class ControlTowerTest
       when(airplane.atAirport()).thenReturn(true);
       Object[] hangarFull = new Object[2];
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(false, controlTower.checkForLand(hangar, airplane));
+      assertEquals(true, ControlTower.checkForLand(hangar, airplane));
     }
   @Test
   public void checkForTakeOffReturnsTrueIfClearForTakeOff()
@@ -58,14 +58,14 @@ public class ControlTowerTest
     when(airplane.atAirport()).thenReturn(true);
     hangarFull[0] = airplane;
     ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-    assertEquals(true, controlTower.checkForTakeOff(hangar, airplane));
+    assertEquals(false, ControlTower.checkForTakeOff(hangar, airplane));
   }
     @Test
     public void checkIfHangarNotContainsAirplane()
     {
       Object[] hangarFull = new Object[1];
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(false, controlTower.checkForTakeOff(hangar, airplane));
+      assertEquals(true, ControlTower.checkForTakeOff(hangar, airplane));
     }
     @Test
     public void checkIfAirplaneIsNotAtAirport()
@@ -74,6 +74,6 @@ public class ControlTowerTest
       Object[] hangarFull = new Object[1];
       hangarFull[0] = airplane;
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(false, controlTower.checkForTakeOff(hangar, airplane));
+      assertEquals(true, ControlTower.checkForTakeOff(hangar, airplane));
     }
 }

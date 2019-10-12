@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="airport.AirportTest" time="0.428" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="airport.AirportTest" time="0.534" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.specification.version" value="11"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\test-classes;C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\classes;C:\Users\Luigi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Luigi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Luigi\.m2\repository\org\mockito\mockito-core\2.23.0\mockito-core-2.23.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy\1.9.0\byte-buddy-1.9.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy-agent\1.9.0\byte-buddy-agent-1.9.0.jar;C:\Users\Luigi\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;"/>
+    <property name="java.class.path" value="C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\test-classes;C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\classes;C:\Users\Luigi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Luigi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Luigi\.m2\repository\org\mockito\mockito-core\2.23.0\mockito-core-2.23.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy\1.9.0\byte-buddy-1.9.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy-agent\1.9.0\byte-buddy-agent-1.9.0.jar;C:\Users\Luigi\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-module-junit4\2.0.2\powermock-module-junit4-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-module-junit4-common\2.0.2\powermock-module-junit4-common-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-reflect\2.0.2\powermock-reflect-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-core\2.0.2\powermock-core-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\javassist\javassist\3.24.0-GA\javassist-3.24.0-GA.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-api-mockito2\2.0.2\powermock-api-mockito2-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-api-support\2.0.2\powermock-api-support-2.0.2.jar;"/>
     <property name="java.vm.vendor" value="AdoptOpenJDK"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -17,9 +17,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Luigi\AppData\Local\Temp\surefire9617329031566383741\surefirebooter6257616477613010635.jar C:\Users\Luigi\AppData\Local\Temp\surefire9617329031566383741 2019-10-12T14-20-51_587-jvmRun1 surefire2897636968102192157tmp surefire_04171155952246616486tmp"/>
+    <property name="sun.java.command" value="C:\Users\Luigi\AppData\Local\Temp\surefire5785013576759983132\surefirebooter9052733041060807359.jar C:\Users\Luigi\AppData\Local\Temp\surefire5785013576759983132 2019-10-12T19-38-47_962-jvmRun1 surefire975168678957073460tmp surefire_012426060957705251833tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\test-classes;C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\classes;C:\Users\Luigi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Luigi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Luigi\.m2\repository\org\mockito\mockito-core\2.23.0\mockito-core-2.23.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy\1.9.0\byte-buddy-1.9.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy-agent\1.9.0\byte-buddy-agent-1.9.0.jar;C:\Users\Luigi\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\test-classes;C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\classes;C:\Users\Luigi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Luigi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Luigi\.m2\repository\org\mockito\mockito-core\2.23.0\mockito-core-2.23.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy\1.9.0\byte-buddy-1.9.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy-agent\1.9.0\byte-buddy-agent-1.9.0.jar;C:\Users\Luigi\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-module-junit4\2.0.2\powermock-module-junit4-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-module-junit4-common\2.0.2\powermock-module-junit4-common-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-reflect\2.0.2\powermock-reflect-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-core\2.0.2\powermock-core-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\javassist\javassist\3.24.0-GA\javassist-3.24.0-GA.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-api-mockito2\2.0.2\powermock-api-mockito2-2.0.2.jar;C:\Users\Luigi\.m2\repository\org\powermock\powermock-api-support\2.0.2\powermock-api-support-2.0.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Luigi"/>
     <property name="user.language" value="en"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Luigi\AppData\Local\Temp\surefire9617329031566383741\surefirebooter6257616477613010635.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Luigi\AppData\Local\Temp\surefire5785013576759983132\surefirebooter9052733041060807359.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.4+11"/>
@@ -60,9 +60,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="returnsAnInstanceOfAirport" classname="airport.AirportTest" time="0.001"/>
-  <testcase name="returnsAnArrayWithTheLandedAirplane" classname="airport.AirportTest" time="0.424"/>
-  <testcase name="returnsAnArrayWithoutTheDepartedAirplane" classname="airport.AirportTest" time="0"/>
+  <testcase name="returnsAnInstanceOfAirport" classname="airport.AirportTest" time="0.518"/>
+  <testcase name="returnsAnArrayWithTheLandedAirplane" classname="airport.AirportTest" time="0.01"/>
+  <testcase name="returnsAnArrayWithoutTheDepartedAirplane" classname="airport.AirportTest" time="0.003"/>
   <testcase name="AirplaneCannotLandIfHagarFull" classname="airport.AirportTest" time="0"/>
-  <testcase name="AirplaneCannotTakeOffIfNotInHangar" classname="airport.AirportTest" time="0.001"/>
+  <testcase name="AirplaneCannotTakeOffIfNotInHangar" classname="airport.AirportTest" time="0"/>
 </testsuite>
