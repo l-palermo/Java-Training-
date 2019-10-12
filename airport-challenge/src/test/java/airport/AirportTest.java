@@ -15,25 +15,25 @@ import controlTower.ControlTower;
 
 public class AirportTest
 {
-  ControlTower controlTower;
+  ControlTower ControlTower;
   Airplane airplaneMock;
   @Before
   public void Initialize()
 	{
-    controlTower = mock(ControlTower.class);
+    ControlTower = mock(ControlTower.class);
     airplaneMock = mock(Airplane.class);
 	}
   
   @Test
   public void returnsAnInstanceOfAirport()
   { 
-    Airport airport = new Airport(controlTower);
+    Airport airport = new Airport(ControlTower);
     assertEquals(Airport.class, airport.getClass());
   }
   @Test
   public void returnsAnArrayWithTheLandedAirplane()
   {
-    Airport airport = new Airport(controlTower);
+    Airport airport = new Airport(ControlTower);
     airport.airplaneLand(airplaneMock);
     assertEquals(Arrays.asList(airplaneMock), airport.hangar);
   }
@@ -41,8 +41,8 @@ public class AirportTest
   public void returnsAnArrayWithoutTheDepartedAirplane()
   {
     ArrayList<Object> hangarMock = new ArrayList<>(Arrays.asList());
-    when(controlTower.checkForLand(hangarMock, airplaneMock)).thenReturn(true);
-    Airport airport = new Airport(controlTower);
+    when(ControlTower.checkForLand(hangarMock, airplaneMock)).thenReturn(true);
+    Airport airport = new Airport(ControlTower);
     airport.hangar.add(airplaneMock);
     airport.airplaneTakeOff(airplaneMock);
     assertEquals(Arrays.asList(), airport.hangar);
@@ -51,14 +51,14 @@ public class AirportTest
   public void AirplaneCannotLandIfHagarFull()
   {
     ArrayList<Object> hangarMock = new ArrayList<>(Arrays.asList());
-    when(controlTower.checkForLand(hangarMock, airplaneMock)).thenReturn(true);
-    Airport airport = new Airport(controlTower);
+    when(ControlTower.checkForLand(hangarMock, airplaneMock)).thenReturn(true);
+    Airport airport = new Airport(ControlTower);
     assertEquals("The hangar is full", airport.airplaneLand(airplaneMock));
   }
   @Test
   public void AirplaneCannotTakeOffIfNotInHangar()
   {
-    Airport airport = new Airport(controlTower);
+    Airport airport = new Airport(ControlTower);
     assertEquals("The airplane is not in the hangar", airport.airplaneTakeOff(airplaneMock));
   }
 }

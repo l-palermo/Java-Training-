@@ -17,14 +17,14 @@ public class Airport
 
   public Object airplaneLand(Airplane airplane)
   {
-    if (this.controlTower.checkForLand(hangar, airplane)) { return "The hangar is full"; }
+    if (ControlTower.checkForLand(hangar, airplane)) { return "The hangar is full"; }
     hangar.add(airplane);
     return hangar;
   }
 
   public Object airplaneTakeOff(Airplane airplane)
   {
-    if (this.controlTower.checkForTakeOff(hangar, airplane)) { return "The airplane is not in the hangar"; }
+    if (ControlTower.checkForTakeOff(hangar, airplane)) { return "The airplane is not in the hangar"; }
     hangar.remove(airplane);
     return hangar;
   }
