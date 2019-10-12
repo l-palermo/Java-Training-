@@ -2,7 +2,7 @@ package airplane;
 
 public class Airplane
 {
-  boolean atAirport = false;
+  public boolean atAirport = false;
 
   public boolean land()
   {
