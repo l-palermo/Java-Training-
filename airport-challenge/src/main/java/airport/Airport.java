@@ -8,16 +8,17 @@ import controlTower.ControlTower;
 
 public class Airport
 {
-	ControlTower controlTower;
+  ControlTower controlTower;
+  ArrayList<Object> hangar = new ArrayList<Object>();
 	
 	public Airport(ControlTower ct){
 		this.controlTower = ct;
 	}
-  ArrayList<Object> hangar = new ArrayList<Object>();
 
   public Object airplaneLand(Airplane airplane)
   {
     if (ControlTower.checkForLand(hangar, airplane)) { return "The hangar is full"; }
+    airplane.land();
     hangar.add(airplane);
     return hangar;
   }
@@ -25,6 +26,7 @@ public class Airport
   public Object airplaneTakeOff(Airplane airplane)
   {
     if (ControlTower.checkForTakeOff(hangar, airplane)) { return "The airplane is not in the hangar"; }
+    airplane.takeOff();
     hangar.remove(airplane);
     return hangar;
   }
