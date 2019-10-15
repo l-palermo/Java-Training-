@@ -3,7 +3,6 @@ package airport;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -61,10 +60,10 @@ public class AirportTest {
 
   //@Test
   public void AirplaneCannotTakeOffIfNotInHangar() {
-    Airport airport = spy(new Airport(controlTowerMock));
-    doReturn(true).when(airport.controlTower).checkForTakeOff(hangarMock, airplaneMock, weatherMock);
-    System.out.println("here");
-    System.out.println(airport.controlTower.checkForTakeOff(hangarMock, airplaneMock, weatherMock));
+    doReturn(true).when(controlTowerMock).checkForTakeOff(hangarMock, airplaneMock, weatherMock);
+    Airport airport = new Airport(controlTowerMock);
+    //System.out.println("here");
+    //System.out.println(airport.controlTower.checkForTakeOff(hangarMock, airplaneMock, weatherMock));
     assertEquals("The airplane is not in the hangar", airport.airplaneTakeOff(airplaneMock));
   } 
 }

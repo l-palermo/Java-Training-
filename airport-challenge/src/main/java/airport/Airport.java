@@ -27,7 +27,7 @@ public class Airport
   }
 
   public Object airplaneTakeOff(Airplane airplane)
-  {
+  { System.out.println(this.controlTower);
     if (this.controlTower.checkForTakeOff(hangar, airplane, weather)) { return "The airplane is not in the hangar"; }
     airplane.takeOff();
     hangar.remove(airplane);
