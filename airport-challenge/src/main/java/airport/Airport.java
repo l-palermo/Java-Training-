@@ -5,14 +5,17 @@ import java.util.ArrayList;
 import airplane.Airplane;
 
 import controlTower.ControlTower;
+import weather.Weather;
 
 public class Airport
 {
   ControlTower controlTower;
   ArrayList<Object> hangar = new ArrayList<Object>();
+  private String weather;
 	
 	public Airport(ControlTower ct){
-		this.controlTower = ct;
+    this.controlTower = ct;
+    this.weather = Weather.forecast();
 	}
 
   public Object airplaneLand(Airplane airplane)
