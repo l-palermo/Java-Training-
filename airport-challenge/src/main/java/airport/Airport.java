@@ -11,7 +11,7 @@ public class Airport
 {
   ControlTower controlTower;
   ArrayList<Object> hangar = new ArrayList<Object>();
-  private String weather;
+  String weather;
 	
 	public Airport(ControlTower ct){
     this.controlTower = ct;
@@ -20,7 +20,7 @@ public class Airport
 
   public Object airplaneLand(Airplane airplane)
   {
-    if (ControlTower.checkForLand(hangar, airplane)) { return "The hangar is full"; }
+    if (this.controlTower.checkForLand(hangar, airplane, weather)) { return "The hangar is full"; }
     airplane.land();
     hangar.add(airplane);
     return hangar;
@@ -28,7 +28,7 @@ public class Airport
 
   public Object airplaneTakeOff(Airplane airplane)
   {
-    if (ControlTower.checkForTakeOff(hangar, airplane)) { return "The airplane is not in the hangar"; }
+    if (this.controlTower.checkForTakeOff(hangar, airplane, weather)) { return "The airplane is not in the hangar"; }
     airplane.takeOff();
     hangar.remove(airplane);
     return hangar;

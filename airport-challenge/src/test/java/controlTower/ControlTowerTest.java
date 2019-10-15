@@ -1,32 +1,35 @@
 package controlTower;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-import org.junit.Rule;
+import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
 
 import airplane.Airplane;
 
 public class controlTowerTest
 { 
-  @Rule
-  public MockitoRule rule = MockitoJUnit.rule();
-  
-  @Mock
-  private Airplane airplane;
+  ControlTower ControlTower;
+  Airplane airplane;
+  String weather;
+  @Before public void initialize()
+  {
+    ControlTower = new ControlTower();
+    airplane = mock(Airplane.class);
+    weather = "clear";
+  }
   
   @Test
-  public void checkForLandReturnsTrueIfClearForLand()
+  public void checkForLandReturnsFalseIfClearForLand()
   {
     Object[] hangarFull = new Object[1];
     ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-    assertEquals(false, ControlTower.checkForLand(hangar, airplane));
+    assertEquals(false, ControlTower.checkForLand(hangar, airplane, weather));
   }
     @Test
     public void checkIfHangarContainsAirplane()
@@ -34,14 +37,14 @@ public class controlTowerTest
       Object[] hangarFull = new Object[1];
       hangarFull[0] = airplane;
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForLand(hangar, airplane));
+      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
     }
     @Test
     public void checkIfHangarIsFull()
     {
       Object[] hangarFull = new Object[5];
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForLand(hangar, airplane));
+      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
     }
     @Test
     public void checkIfAirplaneIsAtAirport()
@@ -49,7 +52,15 @@ public class controlTowerTest
       when(airplane.atAirport()).thenReturn(true);
       Object[] hangarFull = new Object[2];
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForLand(hangar, airplane));
+      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
+    }
+    @Test
+    public void checkIfWeatherIsStormyForLand()
+    {
+      Object[] hangarFull = new Object[2];
+      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
+      weather = "stormy";
+      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
     }
   @Test
   public void checkForTakeOffReturnsTrueIfClearForTakeOff()
@@ -58,14 +69,14 @@ public class controlTowerTest
     when(airplane.atAirport()).thenReturn(true);
     hangarFull[0] = airplane;
     ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-    assertEquals(false, ControlTower.checkForTakeOff(hangar, airplane));
+    assertEquals(false, ControlTower.checkForTakeOff(hangar, airplane, weather));
   }
     @Test
     public void checkIfHangarNotContainsAirplane()
     {
       Object[] hangarFull = new Object[1];
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForTakeOff(hangar, airplane));
+      assertEquals(true, ControlTower.checkForTakeOff(hangar, airplane, weather));
     }
     @Test
     public void checkIfAirplaneIsNotAtAirport()
@@ -74,6 +85,14 @@ public class controlTowerTest
       Object[] hangarFull = new Object[1];
       hangarFull[0] = airplane;
       ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForTakeOff(hangar, airplane));
+      assertEquals(true, ControlTower.checkForTakeOff(hangar, airplane, weather));
+    }
+    @Test
+    public void checkIfWeatherIsStormyForTakeOff()
+    {
+      Object[] hangarFull = new Object[2];
+      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
+      weather = "stormy";
+      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
     }
 }
