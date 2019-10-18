@@ -19,7 +19,7 @@ public class ControlTower
   }
 
   public boolean checkForTakeOff(ArrayList<Object> hangar, Airplane airplane, String weather)
-  {   
+  { 
     if (!hangar.contains(airplane) || airplane.atAirport() == false ||
     weather == "stormy")
     {

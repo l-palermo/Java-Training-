@@ -10,25 +10,27 @@ import weather.Weather;
 public class Airport
 {
   ControlTower controlTower;
-  ArrayList<Object> hangar = new ArrayList<Object>();
+  ArrayList<Object> hangar;
   String weather;
 	
-	public Airport(ControlTower ct){
-    this.controlTower = ct;
+  Airport()
+  {
+    this.controlTower = new ControlTower();
     this.weather = Weather.forecast();
+    this.hangar = new ArrayList<Object>();
 	}
 
   public Object airplaneLand(Airplane airplane)
   {
-    if (this.controlTower.checkForLand(hangar, airplane, weather)) { return "The hangar is full"; }
+    if (controlTower.checkForLand(hangar, airplane, weather)) { return "The airplane cannot land"; }
     airplane.land();
     hangar.add(airplane);
     return hangar;
   }
 
   public Object airplaneTakeOff(Airplane airplane)
-  { System.out.println(this.controlTower);
-    if (this.controlTower.checkForTakeOff(hangar, airplane, weather)) { return "The airplane is not in the hangar"; }
+  {
+    if (controlTower.checkForTakeOff(hangar, airplane, weather)) { return "The airplane is not in the hangar"; }
     airplane.takeOff();
     hangar.remove(airplane);
     return hangar;

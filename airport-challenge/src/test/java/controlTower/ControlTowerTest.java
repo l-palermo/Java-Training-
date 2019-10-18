@@ -1,6 +1,7 @@
 package controlTower;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -66,8 +67,8 @@ public class controlTowerTest
   public void checkForTakeOffReturnsTrueIfClearForTakeOff()
   {
     Object[] hangarFull = new Object[1];
-    when(airplane.atAirport()).thenReturn(true);
     hangarFull[0] = airplane;
+    doReturn(true).when(airplane).atAirport(); //.thenReturn(true);
     ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
     assertEquals(false, ControlTower.checkForTakeOff(hangar, airplane, weather));
   }
