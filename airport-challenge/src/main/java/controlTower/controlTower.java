@@ -10,7 +10,7 @@ public class ControlTower
   // to land or take off - Refactor conditional to smaller private methods
   public boolean checkForLand(ArrayList<Object> hangar, Airplane airplane, String weather)
   {
-    if (hangar.size() == 5 || hangar.contains(airplane) || 
+    if (checkHangarFull(hangar) || hangar.contains(airplane) || 
     airplane.atAirport() == true || weather == "stormy")
     {
      return true;
@@ -25,6 +25,11 @@ public class ControlTower
     {
       return true;
     }
+    return false;
+  }
+  private boolean checkHangarFull(ArrayList<Object> hangar)
+  {
+    if (hangar.size() >= 5) { return true; }
     return false;
   }
 }

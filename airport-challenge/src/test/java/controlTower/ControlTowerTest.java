@@ -68,7 +68,7 @@ public class controlTowerTest
   {
     Object[] hangarFull = new Object[1];
     hangarFull[0] = airplane;
-    doReturn(true).when(airplane).atAirport(); //.thenReturn(true);
+    doReturn(true).when(airplane).atAirport();
     ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
     assertEquals(false, ControlTower.checkForTakeOff(hangar, airplane, weather));
   }
