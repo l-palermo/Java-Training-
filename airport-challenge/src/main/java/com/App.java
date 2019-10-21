@@ -1,13 +1,11 @@
 package com;
 
-/**
- * Hello world!
- *
- */
+import airplane.Airplane;
+import airport.Airport;
+
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+  static Airplane createAirplane = new Airplane();
+  static Airport createAirport = new Airport();
+  
 }

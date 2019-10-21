@@ -13,7 +13,7 @@ public class Airport
   ArrayList<Object> hangar;
   String weather;
 	
-  Airport()
+  public Airport()
   {
     this.controlTower = new ControlTower();
     this.weather = Weather.forecast();
