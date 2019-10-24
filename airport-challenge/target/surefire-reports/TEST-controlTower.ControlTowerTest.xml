@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.4.11-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Luigi\AppData\Local\Temp\surefire3834083799005502977\surefirebooter8628439588574298659.jar C:\Users\Luigi\AppData\Local\Temp\surefire3834083799005502977 2019-10-20T13-26-22_091-jvmRun1 surefire2189366401450026811tmp surefire_09123819625023218747tmp"/>
+    <property name="sun.java.command" value="C:\Users\Luigi\AppData\Local\Temp\surefire16950490673557013760\surefirebooter14238461404874057803.jar C:\Users\Luigi\AppData\Local\Temp\surefire16950490673557013760 2019-10-24T16-02-42_421-jvmRun1 surefire17502815687301065685tmp surefire_011407296127979820627tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\test-classes;C:\Users\Luigi\Desktop\Makers\Desktop\projects\Java\airport-challenge\target\classes;C:\Users\Luigi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Luigi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Luigi\.m2\repository\org\mockito\mockito-core\2.23.0\mockito-core-2.23.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy\1.9.0\byte-buddy-1.9.0.jar;C:\Users\Luigi\.m2\repository\net\bytebuddy\byte-buddy-agent\1.9.0\byte-buddy-agent-1.9.0.jar;C:\Users\Luigi\.m2\repository\org\objenesis\objenesis\2.6\objenesis-2.6.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Luigi\AppData\Local\Temp\surefire3834083799005502977\surefirebooter8628439588574298659.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Luigi\AppData\Local\Temp\surefire16950490673557013760\surefirebooter14238461404874057803.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.4+11"/>

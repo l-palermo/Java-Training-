@@ -43,8 +43,6 @@ public class AirportTest {
   public void setup()
   {
     airplaneMock = mock(Airplane.class);
-    weatherMock = "";
-    hangarMock = new ArrayList<Object>();
   }
 
   @Test
