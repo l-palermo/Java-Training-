@@ -4,16 +4,14 @@ export default function BackendData() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    setInterval(hello(), 250);
-  });
-
-  let hello = () => {
     fetch('/api')
-    .then(response => response.text())
+    .then(response => {
+      return response.text()
+    })
     .then(message => {
       setMessage(message)
     })
-  }
+  }, []);
 
   return (
     <div>
