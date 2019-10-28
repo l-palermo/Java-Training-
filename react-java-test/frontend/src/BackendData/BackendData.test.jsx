@@ -2,8 +2,9 @@ import React from 'react';
 import BackendData from './BackendData';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { render } from '@testing-library/react';
+import { render, getByTestId, queryByDisplayValue, queryByPlaceholderText } from '@testing-library/react';
 import fetch from './fetchMock';
+import { act } from 'react-dom/test-utils';
 global.fetch = fetch;
 
 configure({ adapter: new Adapter() })
@@ -22,3 +23,10 @@ describe('#BackendData', () => {
     })
   })
 });
+/* it('returns the text hello', () => {
+  const fetchSpy = jest.spyOn(window, 'fetch');
+  const { container } = render(<BackendData />)
+  act(() => { setMessage('hello')})
+  const message = getByTestId(container, 'message')
+  expect(message.textContent).toBe('hello')
+}) */

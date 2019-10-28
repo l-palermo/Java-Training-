@@ -13,4 +13,9 @@ public class HelloController
   {
     return "Hello, we are finally online" + new Date();
   }
+  @GetMapping("/first")
+  public String ciao()
+  {
+    return "this is the backend data from the above route";
+  }
 }

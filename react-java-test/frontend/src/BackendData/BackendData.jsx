@@ -14,7 +14,7 @@ export default function BackendData() {
   }, []);
 
   return (
-    <div>
+    <div data-testid="message">
       { message }
     </div>
   )
