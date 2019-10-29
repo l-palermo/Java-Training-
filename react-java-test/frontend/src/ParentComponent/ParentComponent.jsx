@@ -22,7 +22,7 @@ export default class ParentComponent extends React.Component {
         <h1>from the route '/first' </h1>
       </div>
       <div>
-        { this.state.text}
+        { this.state.text }
       </div>
       </div>
     )
