@@ -1,3 +1,15 @@
+# React Java Test App
+
+The app is built using React for the frontend and Springboot/Java for the backend.
+
+The front end has 3 components:
+* App - This is the parent component that uses <Browser routes> to route the two other child components. It uses <Lazy load> to render the components.
+* FirstRoute - This app fetches data from the backend route and display it on the page.
+* SecondRoute - Does the same as the one above but fecthes different data.
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

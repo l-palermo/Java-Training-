@@ -1,24 +1,23 @@
 import React from 'react';
-import BackendData from './BackendData';
+import SecondRoute from './SecondRoute';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { render, getByTestId, queryByDisplayValue, queryByPlaceholderText } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import fetch from './fetchMock';
-import { act } from 'react-dom/test-utils';
 global.fetch = fetch;
 
 configure({ adapter: new Adapter() })
 jest.useFakeTimers();
 
-describe('#BackendData', () => {
+describe('#SecondRoute', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<BackendData />);
+    const wrapper = shallow(<SecondRoute />);
     expect(wrapper).toHaveLength(1);
   });
   describe('hello function', () => {
     it('fetches the data from the backend', () => {
       const fetchSpy = jest.spyOn(window, 'fetch');
-      render(<BackendData />);
+      render(<SecondRoute />);
       expect(fetchSpy).toHaveBeenCalled();
     })
   })

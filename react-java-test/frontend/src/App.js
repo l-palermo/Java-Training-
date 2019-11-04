@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-const ParentComponent = lazy(() => import('./ParentComponent/ParentComponent'));
-const BackendData = lazy(() => import('./BackendData/BackendData'));
+const FirstRoute = lazy(() => import('./FirstRoute/FirstRoute'));
+const SecondRoute = lazy(() => import('./SecondRoute/SecondRoute'));
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
       </li>
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
-        <Route exact path="/parent" component={ParentComponent}/>
-        <Route path="/backend" component={BackendData}/>
+        <Route exact path="/parent" component={FirstRoute}/>
+        <Route path="/backend" component={SecondRoute}/>
       </Switch>
     </Suspense>
   </Router>
