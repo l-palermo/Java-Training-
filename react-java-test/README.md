@@ -3,12 +3,19 @@
 The app is built using React for the frontend and Springboot/Java for the backend.
 
 The front end has 3 components:
-* App - This is the parent component that uses <Browser routes> to route the two other child components. It uses <Lazy load> to render the components.
-* FirstRoute - This app fetches data from the backend route and display it on the page.
+* App - This is the parent component that uses **Browser routes** to route the two other child components. It uses **Lazy load** to render the components.
+* FirstRoute - This app fetches data from the backend and display it on the page.
 * SecondRoute - Does the same as the one above but fecthes different data.
 
+The **pom.xml** file has been modified using two plugins:
+* frontend-maven-plugin.version 1.7.6 - This plugin installs node and npm to run the build in react.
+* maven-antrun-plugin - This Plugin copies the react build folder into the ${target/classes/public} that is the static folder in spring boot. 
 
+Thanks to these two plugins the frontend is served by the spring-boot server.
 
+Running **mvn package** and then **java -jar target/react-java-test-0.0.1-SNAPSHOT.jar** we can run directly the built of the whole app.
+
+{}
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
