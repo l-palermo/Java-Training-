@@ -63,4 +63,10 @@ public class AirportTest {
     when(controlTowerMock.checkForTakeOff(any(Hangar.class), any(Airplane.class), anyString())).thenReturn(true);
     assertEquals("The airplane cannot take-off", airport.airplaneTakeOff(airplaneMock));
   } 
+  @Test
+  public void overridesHangarCapacity()
+  {
+    airport.modifyHangarCapacity(3);
+    assertEquals(3, airport.hangar.capacity);
+  }
 }

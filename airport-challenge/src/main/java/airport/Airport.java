@@ -34,4 +34,8 @@ public class Airport
     hangar.removeAirplane(airplane);
     return "The airplane has succesfully taken off";
   }
+  public void modifyHangarCapacity(int capacity)
+  {
+    this.hangar.capacityOverride(capacity);
+  }
 }
