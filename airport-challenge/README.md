@@ -50,3 +50,13 @@ The responsibilities of each class are:
 - **ControlTower class** - checks all the condition for which the **Airplane** is allowed or not to land or take off.
 - **Weather class** - provides a random weather state. This can be sunny or stormy with a higher percentage or sunny weather.
 
+**Testing and Mocking**
+I have used JUnit for unit testing and Mockito for mocking. 
+
+## Considerations
+
+I'm still new to Java so I'm not sure if the use of Java abstract type like interface would have been suitable for this kind of exercise. I found the Mocking framework not very intuitive because of the "any(object.class)" formula when passing argument to a mocked object's method, it took me a while to find out this bit.
+On the other end, I think I have fairly separated the concerns, and the methods do one thing only.
+I'm not sure if I followed the open-close principle effectively, I wonder whether it would be easy returning a specific message for each control tower check for the user to know exactly why the airplane cannot land.
+
+This would be something I would implement on this small exercise to get confident with the Java syntax

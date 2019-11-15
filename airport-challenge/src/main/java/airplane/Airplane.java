@@ -8,13 +8,11 @@ public class Airplane
   {
     return atAirport;
   }
-
   public boolean land()
   {
     atAirport = true;
     return atAirport;
   }
-
   public boolean takeOff()
   {
     atAirport = false;
