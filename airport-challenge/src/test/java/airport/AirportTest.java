@@ -61,6 +61,6 @@ public class AirportTest {
   public void AirplaneCannotTakeOffIfNotInHangar()
   {
     when(controlTowerMock.checkForTakeOff(any(Hangar.class), any(Airplane.class), anyString())).thenReturn(true);
-    assertEquals("The airplane is not in the hangar", airport.airplaneTakeOff(airplaneMock));
+    assertEquals("The airplane cannot take-off", airport.airplaneTakeOff(airplaneMock));
   } 
 }

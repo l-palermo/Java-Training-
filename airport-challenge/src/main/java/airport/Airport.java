@@ -29,7 +29,7 @@ public class Airport
 
   public Object airplaneTakeOff(Airplane airplane)
   {
-    if (controlTower.checkForTakeOff(hangar, airplane, weather)) { return "The airplane is not in the hangar"; }
+    if (controlTower.checkForTakeOff(hangar, airplane, weather)) { return "The airplane cannot take-off"; }
     airplane.takeOff();
     hangar.removeAirplane(airplane);
     return "The airplane has succesfully taken off";
