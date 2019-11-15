@@ -1,30 +1,29 @@
 package airport;
 
-import java.util.ArrayList;
-
 import airplane.Airplane;
 
 import controlTower.ControlTower;
+import hangar.Hangar;
 import weather.Weather;
 
 public class Airport
 {
   ControlTower controlTower;
-  ArrayList<Object> hangar;
+  Hangar hangar;
   String weather;
 	
   public Airport()
   {
     this.controlTower = new ControlTower();
     this.weather = Weather.forecast();
-    this.hangar = new ArrayList<Object>();
+    this.hangar = new Hangar();
 	}
 
   public String airplaneLand(Airplane airplane)
   {
     if (controlTower.checkForLand(hangar, airplane, weather)) { return "The airplane cannot land"; }
     airplane.land();
-    hangar.add(airplane);
+    hangar.addAirplane(airplane);
     return "The airplane has succesfully landed";
   }
 
@@ -32,7 +31,7 @@ public class Airport
   {
     if (controlTower.checkForTakeOff(hangar, airplane, weather)) { return "The airplane is not in the hangar"; }
     airplane.takeOff();
-    hangar.remove(airplane);
-    return hangar;
+    hangar.removeAirplane(airplane);
+    return "The airplane has succesfully taken off";
   }
 }

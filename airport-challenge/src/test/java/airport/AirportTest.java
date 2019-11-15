@@ -1,12 +1,8 @@
 package airport;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import java.util.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -15,9 +11,9 @@ import org.mockito.junit.*;
 
 import airplane.Airplane;
 import controlTower.ControlTower;
+import hangar.Hangar;
 
 @RunWith(MockitoJUnitRunner.class)
-
 public class AirportTest {
 
   @Rule
@@ -31,41 +27,40 @@ public class AirportTest {
 
   Airplane airplaneMock;
   String weatherMock;
-  ArrayList<Object> hangarMock;
+  Hangar hangarMock;
 
   @Before
   public void setup()
   {
     airplaneMock = mock(Airplane.class);
   }
-
   @Test
-  public void returnsAnInstanceOfAirport() {
+  public void returnsAnInstanceOfAirport()
+  {
     assertEquals(Airport.class, airport.getClass());
   }
-
   @Test
-  public void returnsAnArrayWithTheLandedAirplane() {
+  public void returnsAnArrayWithTheLandedAirplane()
+  {
     airport.airplaneLand(airplaneMock);
     assertEquals(airport.airplaneLand(airplaneMock), "The airplane has succesfully landed");
   }
-
   @Test
-  public void returnsAnArrayWithoutTheDepartedAirplane() {
-    when(controlTowerMock.checkForTakeOff(any(ArrayList.class), any(Airplane.class), anyString())).thenReturn(false);
-    airport.airplaneTakeOff(airplaneMock);
-    assertEquals(Arrays.asList(), airport.hangar);
+  public void returnsAnArrayWithoutTheDepartedAirplane()
+  {
+    when(controlTowerMock.checkForTakeOff(any(Hangar.class), any(Airplane.class), anyString())).thenReturn(false);
+    assertEquals(airport.airplaneTakeOff(airplaneMock), "The airplane has succesfully taken off");
   }
-
   @Test
-  public void AirplaneCannotLandIfHagarFull() {
-    when(controlTowerMock.checkForLand(any(ArrayList.class), any(Airplane.class), anyString())).thenReturn(true);
+  public void AirplaneCannotLandIfHagarFull()
+  {
+    when(controlTowerMock.checkForLand(any(Hangar.class), any(Airplane.class), anyString())).thenReturn(true);
     assertEquals("The airplane cannot land", airport.airplaneLand(airplaneMock));
   }
-
   @Test
-  public void AirplaneCannotTakeOffIfNotInHangar() {
-    when(controlTowerMock.checkForTakeOff(any(ArrayList.class), any(Airplane.class), anyString())).thenReturn(true);
+  public void AirplaneCannotTakeOffIfNotInHangar()
+  {
+    when(controlTowerMock.checkForTakeOff(any(Hangar.class), any(Airplane.class), anyString())).thenReturn(true);
     assertEquals("The airplane is not in the hangar", airport.airplaneTakeOff(airplaneMock));
   } 
 }

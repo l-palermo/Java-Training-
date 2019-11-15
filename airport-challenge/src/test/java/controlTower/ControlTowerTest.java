@@ -4,94 +4,90 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import airplane.Airplane;
+import hangar.Hangar;
 
 public class controlTowerTest
 { 
   ControlTower ControlTower;
-  Airplane airplane;
+  Airplane airplaneMock;
+  Airplane airplaneMock1;
   String weather;
+  Hangar hangarMock;
+  
   @Before public void initialize()
   {
     ControlTower = new ControlTower();
-    airplane = mock(Airplane.class);
+    airplaneMock = mock(Airplane.class);
+    airplaneMock1 = mock(Airplane.class);
+    hangarMock = mock(Hangar.class);
+    hangarMock.hangar = new ArrayList<Airplane>();
+    hangarMock.capacity = 5;
     weather = "clear";
   }
   
   @Test
   public void checkForLandReturnsFalseIfClearForLand()
   {
-    Object[] hangarFull = new Object[1];
-    ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-    assertEquals(false, ControlTower.checkForLand(hangar, airplane, weather));
+    assertEquals(false, ControlTower.checkForLand(hangarMock, airplaneMock, weather));
   }
     @Test
-    public void checkIfHangarContainsAirplane()
+    public void checkIfHangarIncludesAirplane()
     {
-      Object[] hangarFull = new Object[1];
-      hangarFull[0] = airplane;
-      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
+      hangarMock.hangar.add(airplaneMock);
+      assertEquals(true, ControlTower.checkForLand(hangarMock, airplaneMock, weather));
     }
     @Test
     public void checkIfHangarIsFull()
     {
-      Object[] hangarFull = new Object[5];
-      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
+      hangarMock.capacity = 1;
+      hangarMock.hangar.add(airplaneMock);
+      assertEquals(true, ControlTower.checkForLand(hangarMock, airplaneMock1, weather));
     }
     @Test
     public void checkIfAirplaneIsAtAirport()
     {
-      when(airplane.atAirport()).thenReturn(true);
-      Object[] hangarFull = new Object[2];
-      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
+      when(airplaneMock.atAirport()).thenReturn(true);
+      assertEquals(true, ControlTower.checkForLand(hangarMock, airplaneMock, weather));
     }
     @Test
     public void checkIfWeatherIsStormyForLand()
     {
-      Object[] hangarFull = new Object[2];
-      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
       weather = "stormy";
-      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
+      assertEquals(true, ControlTower.checkForLand(hangarMock, airplaneMock, weather));
     }
   @Test
   public void checkForTakeOffReturnsTrueIfClearForTakeOff()
   {
-    Object[] hangarFull = new Object[1];
-    hangarFull[0] = airplane;
-    doReturn(true).when(airplane).atAirport();
-    ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-    assertEquals(false, ControlTower.checkForTakeOff(hangar, airplane, weather));
+    hangarMock.hangar.add(airplaneMock);
+    doReturn(true).when(airplaneMock).atAirport();
+    assertEquals(false, ControlTower.checkForTakeOff(hangarMock, airplaneMock, weather));
   }
     @Test
-    public void checkIfHangarNotContainsAirplane()
+    public void checkIfHangarNotIncludesAirplane()
     {
-      Object[] hangarFull = new Object[1];
-      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForTakeOff(hangar, airplane, weather));
+      doReturn(true).when(airplaneMock).atAirport();
+      assertEquals(true, ControlTower.checkForTakeOff(hangarMock, airplaneMock, weather));
     }
+
     @Test
     public void checkIfAirplaneIsNotAtAirport()
     {
-      when(airplane.atAirport()).thenReturn(false);
-      Object[] hangarFull = new Object[1];
-      hangarFull[0] = airplane;
-      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
-      assertEquals(true, ControlTower.checkForTakeOff(hangar, airplane, weather));
+      hangarMock.hangar.add(airplaneMock);
+      when(airplaneMock.atAirport()).thenReturn(false);
+      assertEquals(true, ControlTower.checkForTakeOff(hangarMock, airplaneMock, weather));
     }
+
     @Test
     public void checkIfWeatherIsStormyForTakeOff()
     {
-      Object[] hangarFull = new Object[2];
-      ArrayList<Object> hangar = new ArrayList<>(Arrays.asList(hangarFull));
       weather = "stormy";
-      assertEquals(true, ControlTower.checkForLand(hangar, airplane, weather));
+      hangarMock.hangar.add(airplaneMock);
+      doReturn(true).when(airplaneMock).atAirport();
+      assertEquals(true, ControlTower.checkForTakeOff(hangarMock, airplaneMock, weather));
     }
 }

@@ -1,23 +1,22 @@
 package controlTower;
 
-import java.util.ArrayList;
-
 import airplane.Airplane;
+import hangar.Hangar;
 
 public class ControlTower
 {
-  public boolean checkForLand(ArrayList<Object> hangar, Airplane airplane, String weather)
+  public boolean checkForLand(Hangar hangar, Airplane airplane, String weather)
   {
-    if (checkHangarFull(hangar) || checkHangarWithAirplane(hangar, airplane) || 
+    if(checkHangarFull(hangar) || hangarIncludesAirplane(hangar, airplane) || 
     checkIfAirplaneIsAtAirport(airplane) || checkWeather(weather))
     {
-     return true;
+      return true;
     }
     return false;
   }
-  public boolean checkForTakeOff(ArrayList<Object> hangar, Airplane airplane, String weather)
-  { 
-    if (!checkHangarWithAirplane(hangar, airplane) || !checkIfAirplaneIsAtAirport(airplane) ||
+  public boolean checkForTakeOff(Hangar hangar, Airplane airplane, String weather)
+  {
+    if(!hangarIncludesAirplane(hangar, airplane) || !checkIfAirplaneIsAtAirport(airplane) ||
     checkWeather(weather))
     {
       return true;
@@ -25,24 +24,24 @@ public class ControlTower
     return false;
   }
 
-  private boolean checkHangarFull(ArrayList<Object> hangar)
+  private boolean checkHangarFull(Hangar hangar)
   {
-    if (hangar.size() >= 5) { return true; }
+    if(hangar.hangar.size() >= hangar.capacity) { return true; }
     return false;
   }
-  private boolean checkHangarWithAirplane(ArrayList<Object> hangar, Airplane airplane)
+  private boolean hangarIncludesAirplane(Hangar hangar, Airplane airplane)
   {
-    if (hangar.contains(airplane)) { return true; }
+    if(hangar.hangar.contains(airplane)) { return true; }
     return false;
   }
   private boolean checkIfAirplaneIsAtAirport(Airplane airplane)
   {
-    if (airplane.atAirport()) { return true; }
+    if(airplane.atAirport()) { return true; }
     return false;
   }
   private boolean checkWeather(String weather)
   {
-    if (weather == "stormy") { return true; }
+    if(weather == "stormy") { return true; }
     return false;
   }
 }

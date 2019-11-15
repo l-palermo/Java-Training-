@@ -6,8 +6,8 @@ import airplane.Airplane;
 
 public class Hangar
 { 
-  int capacity;
-  ArrayList<Airplane> hangar;
+  public int capacity;
+  public ArrayList<Airplane> hangar;
   public Hangar()
   {
     this.capacity = 5;
