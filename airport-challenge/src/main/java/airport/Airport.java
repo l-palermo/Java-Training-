@@ -20,12 +20,12 @@ public class Airport
     this.hangar = new ArrayList<Object>();
 	}
 
-  public Object airplaneLand(Airplane airplane)
+  public String airplaneLand(Airplane airplane)
   {
     if (controlTower.checkForLand(hangar, airplane, weather)) { return "The airplane cannot land"; }
     airplane.land();
     hangar.add(airplane);
-    return hangar;
+    return "The airplane has succesfully landed";
   }
 
   public Object airplaneTakeOff(Airplane airplane)

@@ -6,7 +6,8 @@ import static weather.Weather.random;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class WeatherTest {
+public class WeatherTest
+{
   @BeforeClass
   public static void intialize()
   {

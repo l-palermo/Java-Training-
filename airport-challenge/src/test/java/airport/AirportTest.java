@@ -47,7 +47,7 @@ public class AirportTest {
   @Test
   public void returnsAnArrayWithTheLandedAirplane() {
     airport.airplaneLand(airplaneMock);
-    assertEquals(Arrays.asList(airplaneMock), airport.hangar);
+    assertEquals(airport.airplaneLand(airplaneMock), "The airplane has succesfully landed");
   }
 
   @Test
