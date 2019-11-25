@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-export default function BackendData() {
+export default function SecondRoute() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     fetch('/api')
-    .then(response => {
-      return response.text()
-    })
-    .then(message => {
-      setMessage(message)
-    })
+      .then((response) => response.text())
+      .then((text) => {
+        setMessage(text);
+      });
   }, []);
 
   return (
     <div data-testid="message">
       { message }
     </div>
-  )
+  );
 }

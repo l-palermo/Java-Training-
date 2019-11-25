@@ -1,12 +1,13 @@
 import React from 'react';
-import SecondRoute from './SecondRoute';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
+import SecondRoute from './SecondRoute';
 import fetch from './fetchMock';
+
 global.fetch = fetch;
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 jest.useFakeTimers();
 
 describe('#SecondRoute', () => {
@@ -17,10 +18,12 @@ describe('#SecondRoute', () => {
   describe('hello function', () => {
     it('fetches the data from the backend', () => {
       const fetchSpy = jest.spyOn(window, 'fetch');
-      render(<SecondRoute />);
+      act(() => {
+        render(<SecondRoute />);
+      });
       expect(fetchSpy).toHaveBeenCalled();
-    })
-  })
+    });
+  });
 });
 /* it('returns the text hello', () => {
   const fetchSpy = jest.spyOn(window, 'fetch');
