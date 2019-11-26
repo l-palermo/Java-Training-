@@ -10,17 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class Controler {
+  public static void main(String[] args) {
+		SpringApplication.run(Controler.class, args);
+	}
+  
 	@GetMapping("/api")
-  public String hello()
-  {
+  public String hello() {
     return "Hello, we are finally online" + new Date();
   }
   @GetMapping("/first")
-  public String ciao()
-  {
+  public String ciao() {
     return "this is the backend data from the above route";
   }
-	public static void main(String[] args) {
-		SpringApplication.run(Controler.class, args);
-	}
 }
