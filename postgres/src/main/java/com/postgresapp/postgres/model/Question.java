@@ -19,10 +19,11 @@ public class Question extends AuditModel {
   )
   private Long id;
 
-  @NotBlank
+/*   @NotBlank */
   @Size(min = 3, max = 100)
   private String title;
-
+  
+  @NotBlank
   @Column(columnDefinition = "text")
   private String description;
 

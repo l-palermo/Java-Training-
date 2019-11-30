@@ -31,7 +31,7 @@ public class QuestionController {
   public Question createQuestion(@Valid @RequestBody Question question) {
     return questionRepository.save(question);
   }
-  @PutMapping("/question/{questionId}")
+  @PutMapping("/questions/{questionId}")
   public Question updateQuestion(@PathVariable Long questionId,
     @Valid @RequestBody Question questionRequest) {
     return questionRepository.findById(questionId)
@@ -41,7 +41,7 @@ public class QuestionController {
       return questionRepository.save(question);
     }).orElseThrow(() -> new ResourceNotFoundException("Question not found with id " + questionId));
   }
-  @DeleteMapping("/question/{questionId}")
+  @DeleteMapping("/questions/{questionId}")
   public ResponseEntity<?> deleteQuestion(@PathVariable Long questionId) {
     return questionRepository.findById(questionId)
     .map(question -> {

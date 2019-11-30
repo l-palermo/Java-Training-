@@ -17,18 +17,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class AnswerController {
   @Autowired
   private AnswerRepository answerRepository;
   @Autowired
   private QuestionRepository questionRepository;
   
-  @GetMapping("/question/{questionId}/answer")
+  @GetMapping("/questions/{questionId}/answers")
   public List<Answer> getAnswerByQuestionId(@PathVariable Long questionId) {
     return answerRepository.findByQuestionId(questionId);
   }
-  @PostMapping("/question/{questionId}/answer")
+  @PostMapping("/questions/{questionId}/answers")
   public Answer createAnswer(@PathVariable Long questionId, @Valid @RequestBody Answer answer) {
     return questionRepository.findById(questionId)
     .map(question -> {
@@ -36,7 +38,7 @@ public class AnswerController {
       return answerRepository.save(answer);
     }).orElseThrow(() -> new ResourceNotFoundException("question no found with id " + questionId));
   }
-  @PutMapping("question/{questionId}/answer/{answerId}")
+  @PutMapping("questions/{questionId}/answers/{answerId}")
   public Answer updateAnswer(@PathVariable Long questionId, @PathVariable Long answerId,
   @Valid @RequestBody Answer answerRequest) {
     if(!questionRepository.existsById(questionId)) {
@@ -48,7 +50,7 @@ public class AnswerController {
       return answerRepository.save(answer);
     }).orElseThrow(() -> new ResourceNotFoundException("Question not found with Id " + questionId));
   }
-  @DeleteMapping("/question/{questionid}/answer/{answerId}")
+  @DeleteMapping("/questions/{questionid}/answers/{answerId}")
   public ResponseEntity<?> deleteAnswer(@PathVariable Long questionId, @PathVariable Long answerId) {
     if(!questionRepository.existsById(questionId)) {
       throw new ResourceNotFoundException("Question not found with Id " + questionId);
