@@ -19,7 +19,6 @@ import com.postgresapp.postgres.repository.QuestionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -57,5 +56,15 @@ public class AnswerControllerTest {
     doNothing().when(answerMock).setQuestion(any(Question.class));
     when(answerRepositoryMock.save(any(Answer.class))).thenReturn(answerMock);
     assertEquals(answerMock, answerController.createAnswer(anyLong(), answerMock));
+  }
+  @Test
+  public void updateAnswer() {
+    long idFake = 0;
+    Optional<Answer> answerOpt = Optional.of(answerMock);
+    when(questionRepositoryMock.existsById(anyLong())).thenReturn(true);
+    when(answerRepositoryMock.findById(anyLong())).thenReturn(answerOpt);
+    doNothing().when(answerMock).setText(toString());
+    when(answerRepositoryMock.save(any(Answer.class))).thenReturn(answerMock);
+    assertEquals(answerMock, answerController.updateAnswer(idFake, idFake, answerMock));
   }
 }
