@@ -22,6 +22,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -43,12 +44,14 @@ public class AnswerControllerTest {
     questionMock = mock(Question.class);
     answerMock = mock(Answer.class);
   }
+
   @Test
   public void returnAnswersGivenQuestionId() {
     List<Answer> answers = new ArrayList<Answer>();
     when(answerRepositoryMock.findByQuestionId(anyLong())).thenReturn(answers);
     assertEquals(answers, answerController.getAnswerByQuestionId(anyLong()));
   }
+
   @Test
   public void createAnswer() {
     Optional<Question> question = Optional.of(questionMock);
@@ -57,6 +60,7 @@ public class AnswerControllerTest {
     when(answerRepositoryMock.save(any(Answer.class))).thenReturn(answerMock);
     assertEquals(answerMock, answerController.createAnswer(anyLong(), answerMock));
   }
+
   @Test
   public void updateAnswer() {
     long idFake = 0;
@@ -66,5 +70,15 @@ public class AnswerControllerTest {
     doNothing().when(answerMock).setText(toString());
     when(answerRepositoryMock.save(any(Answer.class))).thenReturn(answerMock);
     assertEquals(answerMock, answerController.updateAnswer(idFake, idFake, answerMock));
+  }
+
+  @Test
+  public void deleteAnswer() {
+    long idFake = 0;
+    Optional<Answer> answerOpt = Optional.of(answerMock);
+    when(questionRepositoryMock.existsById(anyLong())).thenReturn(true);
+    when(answerRepositoryMock.findById(anyLong())).thenReturn(answerOpt);
+    doNothing().when(answerRepositoryMock).delete(any(Answer.class));
+    assertEquals(ResponseEntity.ok().build(), answerController.deleteAnswer(idFake, idFake));
   }
 }
