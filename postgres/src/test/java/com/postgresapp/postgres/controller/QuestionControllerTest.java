@@ -13,8 +13,8 @@ import java.util.Optional;
 import com.postgresapp.postgres.model.Question;
 import com.postgresapp.postgres.repository.QuestionRepository;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,6 +27,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class QuestionControllerTest {
+
   @MockBean
   QuestionRepository questionRepositoryMock;
   @Autowired
@@ -44,8 +45,9 @@ public class QuestionControllerTest {
   @Test
   public void getQuestions() {
     Page<Question> page = Page.empty();
+    Pageable pageable = Pageable.unpaged();
     when(questionRepositoryMock.findAll(any(Pageable.class))).thenReturn(page);
-    assertEquals(page, questionController.getQuestions(any(Pageable.class)));
+    assertEquals(page, questionController.getQuestions(pageable));
   }
   @Test
   public void createQuestion() {
