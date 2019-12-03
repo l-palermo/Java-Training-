@@ -59,5 +59,4 @@ public class Answer extends AuditModel {
   public void setQuestion( Question question) {
     this.question = question;
   }
-
 }
