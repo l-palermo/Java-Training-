@@ -2,6 +2,8 @@ package com.postgresapp.postgres.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import com.postgresapp.postgres.model.Answer;
@@ -36,6 +38,9 @@ public class AnswerRepositoryTest {
     question.setTitle("test");
     question.setDescription("test");
     questionRepository.save(question);
+    answer.setText("test");
+    answer.setQuestion(question);
+    answerRepository.save(answer);
   }
 
   @AfterEach
@@ -45,19 +50,17 @@ public class AnswerRepositoryTest {
   }
 
   @Test
+  public void getAnswerByQuestionId() {
+    List<Answer> answerDB = answerRepository.findByQuestionId(question.getId());
+    assertEquals(answer, answerDB.get(0));
+  }
+  @Test
   public void saveAnswer() {
-    String string = "test";
-    answer.setText(string);
-    answer.setQuestion(question);
-    answerRepository.save(answer);
     Answer answerDB = answerRepository.getOne(answer.getId());
     assertEquals(answerDB.getId(), answer.getId());
   }
   @Test
   public void updateAnswer() {
-    answer.setText("test");
-    answer.setQuestion(question);
-    answerRepository.save(answer);
     Answer answerDB = answerRepository.getOne(answer.getId());
     answerDB.setText("test1");
     answerRepository.save(answerDB);
@@ -66,9 +69,10 @@ public class AnswerRepositoryTest {
   }
   @Test
   public void deleteAnswer() {
-    answer.setText("test");
-    answer.setQuestion(question);
-    answerRepository.save(answer);
-    assertEquals(true, true);
+    boolean doesExist = answerRepository.existsById(answer.getId());
+    assertEquals(true, doesExist);
+    answerRepository.deleteById(answer.getId());
+    boolean doNotExist = answerRepository.existsById(answer.getId());
+    assertEquals(false, doNotExist);
   }
 }
